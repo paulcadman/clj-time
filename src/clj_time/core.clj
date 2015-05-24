@@ -590,6 +590,12 @@
   [^Interval in & by]
   (.withEnd in (apply plus (end in) by)))
 
+(defn intersect
+  "Returns an Interval that is the intersection of the specified Intervals"
+  [^Interval i-a ^Interval i-b]
+  (if (.overlaps i-a i-b)
+    i-a
+    nil))
 
 (defn within?
   "With 2 arguments: Returns true if the given Interval contains the given
